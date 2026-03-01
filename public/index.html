@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Node Project Plan Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="layout">
+    <section class="hero-card">
+      <p class="eyebrow">Node.js Product Planning</p>
+      <h1>Smart Project Plan Builder</h1>
+      <p class="hero-copy">
+        Answer relevant product and technical questions, then download a complete MS Word project plan instantly.
+      </p>
+      <ul class="hero-list">
+        <li>Node-focused architecture</li>
+        <li>Feature and delivery breakdown</li>
+        <li>Design and UX guidance included</li>
+      </ul>
+      <div class="progress-wrap">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <p class="progress-text" id="progressText">Step 1 of 4</p>
+    </section>
+
+    <section class="form-card">
+      <form id="planForm">
+        <div class="step is-active" data-step="1">
+          <h2>Business Context</h2>
+          <label>Project Name<input name="projectName" required maxlength="120" placeholder="e.g. QuickTalk Messaging" /></label>
+          <label>Company / Client Name<input name="companyName" maxlength="120" placeholder="e.g. Acme Digital" /></label>
+          <label>Project Summary<textarea name="summary" required maxlength="1000" placeholder="What is this project trying to achieve?"></textarea></label>
+          <label>Target Users<textarea name="targetUsers" maxlength="1000" placeholder="Who will use this app?"></textarea></label>
+        </div>
+
+        <div class="step" data-step="2">
+          <h2>Scope and Features</h2>
+          <label>Core MVP Features (comma separated)<textarea name="coreFeatures" required maxlength="3000" placeholder="1:1 chat, group chat, push notifications, profile management"></textarea></label>
+          <label>Phase 2 Features (comma separated)<textarea name="advancedFeatures" maxlength="3000" placeholder="voice notes, video calls, AI assistant"></textarea></label>
+          <label>3rd-party Integrations (comma separated)<textarea name="integrations" maxlength="3000" placeholder="Twilio, Firebase Cloud Messaging, Stripe"></textarea></label>
+        </div>
+
+        <div class="step" data-step="3">
+          <h2>Technical and Delivery</h2>
+          <label>Platforms (comma separated)<input name="platforms" maxlength="500" placeholder="Web, Android, iOS, Admin Panel" /></label>
+          <label>Preferred Node Tech Stack<textarea name="techStack" maxlength="1500" placeholder="Node.js, Express/NestJS, PostgreSQL, Redis, Socket.IO"></textarea></label>
+          <label>Timeline<input name="timeline" maxlength="120" placeholder="e.g. 12 weeks" /></label>
+          <label>Budget Range<input name="budget" maxlength="120" placeholder="e.g. USD 40k - 60k" /></label>
+          <label>Expected Team Size<input name="teamSize" maxlength="120" placeholder="e.g. 6 people" /></label>
+        </div>
+
+        <div class="step" data-step="4">
+          <h2>Design, Quality, and Outcomes</h2>
+          <label>Design Direction<textarea name="designDirection" maxlength="1500" placeholder="Desired style, color direction, UI quality bar, accessibility needs"></textarea></label>
+          <label>Security / Compliance Needs<textarea name="securityNeeds" maxlength="1500" placeholder="E2E encryption, audit logs, privacy controls, data retention"></textarea></label>
+          <label>Top Risks<textarea name="risks" maxlength="1500" placeholder="Major risks and constraints"></textarea></label>
+          <label>Success Metrics<textarea name="successMetrics" maxlength="1500" placeholder="Adoption, latency, retention, crash-free sessions"></textarea></label>
+        </div>
+
+        <p id="status" class="status"></p>
+
+        <div class="actions">
+          <button type="button" id="backBtn" class="ghost" disabled>Back</button>
+          <button type="button" id="nextBtn">Next</button>
+          <button type="submit" id="downloadBtn" class="primary hidden">Generate & Download Plan</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="/app.js"></script>
+</body>
+</html>
