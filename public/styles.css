@@ -1,1 +1,222 @@
-.your updated CSS content with yellow values here.
+:root {
+  --paper: #f7f6f2;
+  --ink: #1b2220;
+  --muted: #9ca3af; /* gray now, yellow highlight for muted text could be --muted: #d97706; */
+  --panel: #ffffff;
+  --line: #e5e7eb;
+  --accent: #fbbf24;
+  --accent-deep: #f59e0b;
+  --soft: #fef3c7;
+  --warn: #ca8a04;
+}
+
+/* Primary Accent on buttons */
+button.primary,
+button:not(.ghost) {
+  color: #fff;
+  background: linear-gradient(180deg, var(--accent), var(--accent-deep));
+}
+
+button.ghost {
+  color: #b45309;
+  background: var(--soft);
+  border: 1px solid #fde68a;
+}
+
+.progress-bar {
+  background: linear-gradient(90deg, var(--accent), var(--accent-deep));
+}
+
+.status {
+  color: var(--warn);
+}
+
+.status.success {
+  color: #d97706;
+}
+
+/* For text color (secondary accent) */
+h1, h2, .eyebrow, .progress-text {
+  color: var(--accent-deep);
+}
+
+/* Rest of original file remains unchanged below */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Sora", sans-serif;
+  color: var(--ink);
+  background: radial-gradient(circle at 10% 10%, #fffbe8 0%, transparent 35%),
+    radial-gradient(circle at 100% 0%, #fde68a 0%, transparent 25%),
+    linear-gradient(155deg, #fef3c7, var(--paper));
+}
+
+.layout {
+  width: min(1140px, calc(100% - 2rem));
+  margin: 1rem auto;
+  min-height: calc(100vh - 2rem);
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 380px 1fr;
+}
+
+.hero-card,
+.form-card {
+  background: color-mix(in srgb, var(--panel) 94%, #fffbe8);
+  border: 1px solid var(--line);
+  border-radius: 26px;
+  box-shadow: 0 24px 60px rgba(23, 42, 35, 0.08);
+}
+
+.hero-card {
+  padding: 1.2rem;
+}
+
+.form-card {
+  padding: 1.1rem;
+}
+
+.eyebrow {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0.4rem 0 0.8rem;
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+.hero-copy {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.hero-list {
+  margin: 1rem 0 0;
+  padding-left: 1rem;
+  display: grid;
+  gap: 0.45rem;
+  color: #d97706;
+}
+
+.progress-wrap {
+  margin-top: 1.2rem;
+  width: 100%;
+  height: 12px;
+  border-radius: 999px;
+  background: #fde68a;
+  overflow: hidden;
+}
+
+.progress-text {
+  margin: 0.6rem 0 0;
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+form {
+  display: grid;
+  gap: 0.8rem;
+  height: 100%;
+}
+
+.step {
+  display: none;
+  gap: 0.7rem;
+  animation: reveal 220ms ease;
+}
+
+.step.is-active {
+  display: grid;
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h2 {
+  margin: 0.2rem 0;
+  font-size: 1.2rem;
+}
+
+label {
+  display: grid;
+  gap: 0.38rem;
+  font-size: 0.83rem;
+  font-weight: 600;
+  color: #b45309;
+}
+
+input,
+textarea,
+button {
+  font: inherit;
+}
+
+input,
+textarea {
+  width: 100%;
+  border: 1px solid var(--line);
+  background: #fff;
+  color: var(--ink);
+  border-radius: 12px;
+  padding: 0.72rem 0.8rem;
+}
+
+textarea {
+  min-height: 92px;
+  resize: vertical;
+}
+
+.actions {
+  display: flex;
+  gap: 0.6rem;
+  justify-content: flex-end;
+  margin-top: auto;
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  padding: 0.66rem 1rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 920px) {
+  .layout {
+    width: calc(100% - 1rem);
+    margin: 0.5rem auto;
+    grid-template-columns: 1fr;
+    min-height: calc(100vh - 1rem);
+  }
+
+  h1 {
+    font-size: 1.6rem;
+  }
+}
